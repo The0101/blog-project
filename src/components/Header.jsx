@@ -9,16 +9,13 @@ const navItemsInfo = [
   { name: "Pricing", type: "link" },
   { name: "Faq", type: "link" },
 ];
-
 const NavItem = ({ item }) => {
   const [dropdown, setDropdown] = useState(false);
-
   const toggleDropdownHandler = () => {
     setDropdown((curState) => {
       return !curState;
     });
   };
-
   return (
     <li className="relative group">
       {item.type === "link" ? (
@@ -69,7 +66,7 @@ const Header = () => {
   };
 
   return (
-    <section className="sticky top-0 left-0 right-0 z-50">
+    <section className="sticky top-0 left-0 right-0 z-50 bg-white">
       <header className="container mx-auto px-5 flex justify-between py-4 items-center">
         <div>
           <img className="w-16" src={images.Logo} alt="logo" />
