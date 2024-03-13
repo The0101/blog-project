@@ -4,4 +4,4 @@ const images = {
     Logo,
 }
 
-export default images
+export default images;
