@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { MdKeyboardArrowDown } from "react-icons/md";
+
 import { images } from "../constants";
+
 const navItemsInfo = [
   { name: "Home", type: "link" },
   { name: "Articles", type: "link" },
@@ -9,13 +11,16 @@ const navItemsInfo = [
   { name: "Pricing", type: "link" },
   { name: "Faq", type: "link" },
 ];
+
 const NavItem = ({ item }) => {
   const [dropdown, setDropdown] = useState(false);
+
   const toggleDropdownHandler = () => {
     setDropdown((curState) => {
       return !curState;
     });
   };
+
   return (
     <li className="relative group">
       {item.type === "link" ? (
@@ -42,8 +47,9 @@ const NavItem = ({ item }) => {
             } lg:hidden transition-all duration-500 pt-4 lg:absolute lg:bottom-0 lg:right-0 lg:transform lg:translate-y-full lg:group-hover:block w-max`}
           >
             <ul className="bg-dark-soft lg:bg-transparent text-center flex flex-col shadow-lg rounded-lg overflow-hidden">
-              {item.items.map((page) => (
+              {item.items.map((page, index) => (
                 <a
+                  key={index}
                   href="/"
                   className="hover:bg-dark-hard hover:text-white px-4 py-2 text-white lg:text-dark-soft"
                 >
@@ -57,8 +63,10 @@ const NavItem = ({ item }) => {
     </li>
   );
 };
+
 const Header = () => {
   const [navIsVisible, setNavIsVisible] = useState(false);
+
   const navVisibilityHandler = () => {
     setNavIsVisible((curState) => {
       return !curState;
@@ -99,4 +107,5 @@ const Header = () => {
     </section>
   );
 };
+
 export default Header;
